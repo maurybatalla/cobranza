@@ -1,20 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router'
-//import Crear from '../components/Crear.vue'
+import Cargar from '../components/Cargar.vue'
 //import Editar from '../components/Editar.vue'
 import Listar from '../components/Listar.vue'
 
 const routes = [
 
-  /*{
-    path: '/crear',
-    name: 'Crear',
-    component: Crear
-  },
   {
-    path: '/editar/:id',
-    name: 'Editar',
-    component: Editar
-  },*/
+    path: '/cargar/:id',
+    name: 'Cargar',
+    component: Cargar
+  },
+
   {
     path: '/listar',
     name: 'Listar',

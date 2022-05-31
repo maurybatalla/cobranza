@@ -30,8 +30,8 @@
                                     <div class="btn-group" role="group" aria-label="">
                                
                                          
-                                                <!--<router-link :to="{name:'Editar',params:{id:empleado.id}}" class="btn btn-info">Editar</router-link>-->
-                                                <button type="button" v-on:click="confirmarPago()" class="btn btn-info"><img src="../assets/edit.svg" width="15"></button>
+                                                <router-link :to="{name:'Cargar',params:{id:cliente.idcliente}}" class="btn btn-info"><img src="../assets/edit.svg" width="15"></router-link>
+                                                <!--<button type="button" v-on:click="confirmarPago()" class="btn btn-info"><img src="../assets/edit.svg" width="15"></button>-->
                                           
                                                 <button type="button" v-on:click="confirmarPago(cliente)" class="btn btn-success">  <img src="../assets/dollar-sign.svg" width="15"></button>
                                       

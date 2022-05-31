@@ -117,7 +117,7 @@ export default {
             .then((datosRespuesta=>{
                 console.log(datosRespuesta);
                 this.consultarClientes()
-                //window.location.href='../listar'
+                //window.location.href='../listar',
             }))
         }
         

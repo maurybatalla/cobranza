@@ -50,13 +50,15 @@
 </template>
 <script>
 import axios from "axios";
+
+
+
 export default {
 
     data(){
         return{
             clientes:[],
             txtFiltrar:'',
-
         }
     },
     created:function(){
@@ -79,7 +81,10 @@ export default {
             })
         },
         consultarClientes(){
-            
+     
+
+
+
             axios.get("https://www.svr1.ar/cobranza/").then((result) => {
                 console.log(result.data);
                 this.clientes = []
@@ -90,36 +95,67 @@ export default {
         
         },
         confirmarPago(cliente){
+
             
-            if (confirm("EFECTUAR PAGO TOTAL?") == true) {
-                console.log(cliente.idcliente)
+
+            const swalWithBootstrapButtons = this.$swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'ATENCION',
+                text: "DESEA REALIZAR PAGO A "+cliente.cliente,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'PAGAR',
+                cancelButtonText: 'CANCELAR',
+                reverseButtons: true
+            }).then((result) => {
+            if (result.isConfirmed) {
                 this.guardarPago(cliente)
+                swalWithBootstrapButtons.fire(
+                'Pago Confirmado'
+                )
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === this.$swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                'Se a cancelado el pago',
+                
+                )
+            }
+            })
+
+
+            
+            /*if (confirm("EFECTUAR PAGO TOTAL?") == true) {
+                //console.log(cliente.idcliente)
+            
+                this.guardarPago(cliente)
+                
                 //this.guardarPago(cliente)
             } else {
                 console.log('no')
-            }
+            }*/
         },
+
+
         guardarPago(cliente){
 
-            var datosEnviar=cliente
+            axios.post('https://www.svr1.ar/cobranza/', {opcion:1,idcliente: cliente.idcliente,saldo: cliente.saldo })
+            .then(response =>{
 
-            let formData = new FormData();
-            for(let key in cliente) {
-                formData.append(key, cliente[key]);
-            }
-           
-
-             fetch('https://www.svr1.ar/cobranza/?pagar='+cliente.idcliente,{
-                 method:"POST",
-                 body:JSON.stringify(datosEnviar)
-             })
-            .then(respuesta=>respuesta.json())
-            .then((datosRespuesta=>{
-                console.log(datosRespuesta);
+                console.log(response)
                 this.consultarClientes()
-                //window.location.href='../listar',
-            }))
-        }
+            });   
+
+        },
+       
         
 
     }

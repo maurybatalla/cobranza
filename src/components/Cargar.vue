@@ -19,6 +19,12 @@
                     </div>
 
                     <div class="form-group">
+                      <label for="">Saldo: </label>
+                      <input type="text"
+                        class="form-control" disabled name="saldo" required v-model="txtSaldo" id="saldo" aria-describedby="helpId" placeholder="">
+                    </div>
+
+                    <div class="form-group">
                       <label for="">Importe: </label>
                       <input type="numeric"
                         class="form-control"  name="importe" required v-model="txtImporte" id="importe" aria-describedby="helpId" placeholder="">
@@ -54,6 +60,7 @@ export default {
             txtCliente :'',
             txtDireccion:'',
             txtImporte:'',
+            txtSaldo : '',
             txtObserva:'',
             cliente:[],
         }
@@ -72,6 +79,7 @@ export default {
                 this.txtDireccion = this.cliente[0].direccion
                 this.txtImporte = this.cliente[0].importe 
                 this.txtObserva = this.cliente[0].observa
+                this.txtSaldo = this.cliente[0].saldo
 
                 console.log(this.txtCliente)
   

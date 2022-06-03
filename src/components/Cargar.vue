@@ -31,7 +31,7 @@
                       
 
                     <div class="mt-2 btn-group" role="group" aria-label="">
-                        <button type="submit" class="btn btn-success">Cargar Pago </button>
+                        <button v-on:click="agregarRegistro()" type="submit" class="btn btn-success">Cargar Pago </button>
                         <router-link :to="{name:'Listar'}" class="btn btn-warning">Cancelar</router-link>
                        
                     </div>
@@ -50,6 +50,7 @@ export default {
     data(){
         return{
             //empleado:{},
+            txtIdCliente : '',
             txtCliente :'',
             txtDireccion:'',
             txtImporte:'',
@@ -66,7 +67,7 @@ export default {
                 console.log(result.data);
                 this.cliente = []
                 this.cliente = result.data;
-
+                this.txtIdCliente  = this.cliente[0].idcliente
                 this.txtCliente = this.cliente[0].cliente
                 this.txtDireccion = this.cliente[0].direccion
                 this.txtImporte = this.cliente[0].importe 
@@ -77,19 +78,14 @@ export default {
             })
         },
         agregarRegistro(){
-            console.log(this.empleado);
 
-            var datosEnviar={nombre:this.empleado.nombre,correo:this.empleado.correo}
+             axios.post('https://www.svr1.ar/cobranza/', {opcion:2,idcliente: this.txtIdCliente,importe: this.txtImporte,observa : this.txtObserva })
+            .then(response =>{
 
-             fetch('https://www.svr1.ar/empleados/?insertar=1',{
-                 method:"POST",
-                 body:JSON.stringify(datosEnviar)
-             })
-            .then(respuesta=>respuesta.json())
-            .then((datosRespuesta=>{
-                console.log(datosRespuesta);
-                window.location.href='listar'
-            }))
+                console.log(response)
+                window.location.href='../listar'
+            });
+
         }
         
     }

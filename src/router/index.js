@@ -3,6 +3,7 @@ import Cargar from '../components/Cargar.vue'
 //import Editar from '../components/Editar.vue'
 import Listar from '../components/Listar.vue'
 
+
 const routes = [
 
   {

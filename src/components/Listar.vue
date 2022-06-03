@@ -6,9 +6,8 @@
             </div>
             <div class="card-body">
                 <div class="form-group">
-                <label for="">Nombre</label>
-                <input v-on:input="filtrar()" v-model="txtFiltrar"  type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
-        
+                    <label for="">Nombre</label>
+                    <input v-on:input="filtrar()" v-model="txtFiltrar"  type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
                 </div>
                 <div class="table-responsive ">
                     <table class="table table-striped table-sm">
@@ -48,11 +47,10 @@
         </div>
     </div>
 </template>
+
+
 <script>
 import axios from "axios";
-
-
-
 export default {
 
     data(){
@@ -131,17 +129,6 @@ export default {
             }
             })
 
-
-            
-            /*if (confirm("EFECTUAR PAGO TOTAL?") == true) {
-                //console.log(cliente.idcliente)
-            
-                this.guardarPago(cliente)
-                
-                //this.guardarPago(cliente)
-            } else {
-                console.log('no')
-            }*/
         },
 
 

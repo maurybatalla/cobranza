@@ -6,12 +6,20 @@
             </div>
             <div class="card-body">
                 <div class="form-group">
-                    <label for="">Nombre</label>
-                    <input v-on:input="filtrar()" v-model="txtFiltrar"  type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    <label class="form-check-label" for="flexCheckDefault">
-                        Mostrar Todos
-                    </label>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <label for="">Nombre</label>
+                            <input v-on:input="filtrar()" v-model="txtFiltrar"  type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                        </div>
+                        <div class="col-md-2 mt-3 mb-3">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Mostrar Todos
+                            </label>
+                        </div>
+                        
+                        
+                    </div>
                 </div>
               
                 <div class="table-responsive ">

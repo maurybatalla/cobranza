@@ -8,14 +8,20 @@
                 <div class="form-group">
                     <label for="">Nombre</label>
                     <input v-on:input="filtrar()" v-model="txtFiltrar"  type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Mostrar Todos
+                    </label>
                 </div>
+              
                 <div class="table-responsive ">
                     <table class="table table-striped table-sm">
                         <thead>
                             <tr>
                                 <th>Nombre</th>
                                 <th>Saldo</th>
-                                <th>Acciones</th>
+                                <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,15 +32,14 @@
                                 <td>{{cliente.saldo}}</td>
                       
                                 <td>
-                                    <div class="btn-group" role="group" aria-label="">
-                               
-                                         
-                                                <router-link :to="{name:'Cargar',params:{id:cliente.idcliente}}" class="btn btn-info"><img src="../assets/edit.svg" width="15"></router-link>
-                                                <!--<button type="button" v-on:click="confirmarPago()" class="btn btn-info"><img src="../assets/edit.svg" width="15"></button>-->
-                                          
-                                                <button type="button" v-on:click="confirmarPago(cliente)" class="btn btn-success">  <img src="../assets/dollar-sign.svg" width="15"></button>
-                                      
+                                    <div class="btn-group" role="group" aria-label=""> 
+                                        <router-link :to="{name:'Cargar',params:{id:cliente.idcliente}}" class="btn btn-info"><img src="../assets/edit.svg" width="15"></router-link>
                                     </div>
+                                </td>
+                                <td>
+                                    <div class="btn-group" role="group" aria-label="">
+                                            <button type="button" v-on:click="confirmarPago(cliente)" class="btn btn-success">  <img src="../assets/dollar-sign.svg" width="15"></button>
+                                    </div>     
                                 </td>
                             </tr>
                         </tbody>

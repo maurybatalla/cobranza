@@ -43,5 +43,17 @@
     "last 2 versions",
     "not dead",
     "not ie 11"
-  ]
+  ],
+  "description": "## Project setup ``` npm install ```",
+  "main": "babel.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maurybatalla/cobranza.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maurybatalla/cobranza/issues"
+  },
+  "homepage": "https://github.com/maurybatalla/cobranza#readme"
 }

@@ -83,6 +83,7 @@ export default {
 
             this.clientes = this.clientes.filter(e =>{
 
+                //propiedad filter de javascript
                 if (e.cliente.toLowerCase().search(this.txtFiltrar.toLowerCase()) != -1) {
                    return true
                 } else {
@@ -91,11 +92,9 @@ export default {
 
             })
         },
+
         consultarClientes(){
      
-
-
-
             axios.get("https://www.svr1.ar/cobranza/").then((result) => {
                 console.log(result.data);
                 this.clientes = []
